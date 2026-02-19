@@ -1,5 +1,7 @@
 export function redirectByRole(role: string, router: any) {
-    localStorage.setItem('role', role)
+    if (typeof window !== 'undefined') {
+        localStorage.setItem('role', role)
+    }
 
     if (role === 'admin') router.push('/dashboard/admin')
     if (role === 'manager') router.push('/dashboard/manager')
